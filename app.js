@@ -73,7 +73,7 @@ app.use(express. urlencoded({extended:false}))
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
  
-var client = new twilio(accountSid,authToken);
+// var client = new twilio(accountSid,authToken);
 var otp =Math.floor(100000+Math.random()*90000);
 var userEnteredOTP=''
 console.log(otp)
