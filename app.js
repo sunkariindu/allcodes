@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const twilio =require('twilio')
+const twilio =require('twilio');
 const app = express();
 const ejs = require("ejs");
 require("dotenv").config();
