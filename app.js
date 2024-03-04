@@ -20,78 +20,46 @@ const path = require('path');
 
 const pincodeRoute = require('./routes/pincodeRoute.js');
 const port = process.env.PORT || 8080;
- 
+
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin',"*");
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', true);
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   next();
 });
 
-// //Connect to MongoDB
-// mongoose.connect('mongodb://localhost:27017/datamodalings', {  });
-// const db = mongoose.connection;
- 
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-// db.once('open', () => {
-//     console.log('Connected to MongoDB');
-// });
-
 //MongoDB Atlas connection using native driver
- const MongoClient = require('mongodb').MongoClient;
-//  const uri='mongodb+srv://indusunkari7:hXPMEP6vaU1fJCeQ@cluster0.rcqzajr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-// const uri ='mongodb+srv://indusunkari7:FR5ajziZ3Qu4vAa6@cluster0.pszusn4.mongodb.net/?retryWrites=true&w=majority';
-// const uri='mongodb+srv://indusunkari7:hXPMEP6vaU1fJCeQ@cluster0.rcqzajr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-// const uri='mongodb+srvgit://indusunkari7:HTMugZ8jIw1LHT2G@cluster0.1mvalom.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-// mongoose.connect(uri, { });
-// const uri='mongodb+srv://indusunkari7:CtSCdAlRq0HFMCMo@cluster0.vwxyf4o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
-// const client = new MongoClient(uri, {});
+// const uri = 'mongodb+srv://indus:4ZpX6gGdUDkX38D0@cluster1.qgqupp5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1';
+// const client = new MongoClient(uri, {  });
+const uri = 'mongodb+srv://indus:9cp4DG9XNcFvvvF4@cluster0.rmygqo7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const client = new MongoClient(uri, {  });
+
 
 //Connect to MongoDB Atlas
-// client.connect(err => {
-//     if (err) {
-//         console.error('Error connecting to MongoDB Atlas:', err);
-//     } else {
-//         console.log('Connected to MongoDB Atlas');
-//     }
-// });
 
-//Mongoose setup
-// mongoose.connect(uri, { });
-// const db = mongoose.connection;
-
-// db.on('error', (error) => {
-//     console.error('Error connecting to MongoDB Atlas with Mongoose:', error);
-// });
-
-// db.once('open', () => {
-//     console.log('Connected to MongoDB Atlas with Mongoose');
-// });
-
-//MongoDB Atlas connection using native driver
-// const MongoClient = require('mongodb').MongoClient;
-const uri ='mongodb+srv://indusunkari7:FR5ajziZ3Qu4vAa6@cluster0.pszusn4.mongodb.net/?retryWrites=true&w=majority';
-
-// const client = new MongoClient(uri, {});
-
-//Connect to MongoDB Atlas
-// client.connect(err => {
-//     if (err) {
-//         console.error('Error connecting to MongoDB Atlas:', err);
-//     } else {
-//         console.log('Connected to MongoDB Atlas');
-//     }
-// });
+client.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MongoDB Atlas:', err);
+  } else {
+    console.log('Connected to MongoDB Atlas');
+  }
+});
 
 //Mongoose setup
 mongoose.connect(uri, { });
+
 const db = mongoose.connection;
 
 db.on('error', (error) => {
-    console.error('Error connecting to MongoDB Atlas with Mongoose:', error);
+  console.error('Error connecting to MongoDB Atlas with Mongoose:', error);
 });
+
+db.once('open', () => {
+  console.log('Connected to MongoDB Atlas with Mongoose');
+});
+
 
 db.once('open', () => {
     console.log('Connected to MongoDB Atlas with Mongoose');
