@@ -65,11 +65,6 @@ db.once('open', () => {
 });
 
 
-db.once('open', () => {
-    console.log('Connected to MongoDB Atlas with Mongoose');
-});
-
-
 app.use(express.json());
 app.use(cors());
  
