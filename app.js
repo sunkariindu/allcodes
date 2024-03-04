@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 });
 
 //MongoDB Atlas connection using native driver
-
+const MongoClient = require('mongodb').MongoClient;
 // const uri = 'mongodb+srv://indus:4ZpX6gGdUDkX38D0@cluster1.qgqupp5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1';
 // const client = new MongoClient(uri, {  });
 const uri = 'mongodb+srv://indus:9cp4DG9XNcFvvvF4@cluster0.rmygqo7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
