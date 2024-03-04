@@ -66,7 +66,7 @@ app.use(function (req, res, next) {
 // db.once('open', () => {
 //   console.log('Connected to MongoDB Atlas with Mongoose');
 // });
-const MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
 const uri = 'mongodb+srv://indus:4ZpX6gGdUDkX38D0@cluster1.qgqupp5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1';
 const client = new MongoClient(uri, {});
 
